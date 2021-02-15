@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Cardiomate | Doctor Registration</title>
+    
+    <script src="{%static 'js/jquery.min.js'%}"></script>
+    <link href="{%static 'css/keyboard-dark.css' %}" rel="stylesheet" />
+    <script src="{%static 'js/jquery.keyboard.js' %}"></script>
+    <script src="{%static 'js/loader.js' %}"></script>
+    <!--<link href="{%static 'css/keyboard-previewkeyset.css' %}"rel="stylesheet"/>-->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="{%static 'css/doc_reg2.css'%}" />-->
+    <!--<link rel="stylesheet" href="{%static 'css/navbar.css'%}" />-->
+    <link rel="stylesheet" href="{%static 'css/doc_log.css'%}" />
+  </head>
+  
+  <body>
+    <!-- LOADER -->
+    <div id="preloader">
+            <div class="preloader pulse">
+                <h3>Cardiomate</h3>
+            </div>
+        </div>
+    <!-- END LOADER -->
+    
+    <div>
+      
+      <div class="loginForm">
+        <div class="formHead">
+          <div style="text-align: center;" class="logo">
+            <span
+              ><img
+                style="height: 76px; justify-items: center"
+                src="{% static 'img/heart.svg' %}"
+                alt="heart-logo"
+            /></span>
+          </div>
+        </div>
+        <h1 style="text-align: center;color:#ED4D53;font-family: 'Alegreya', serif;
+        ">Doctor Registration</h1>
+        <div class="formBody">
+          <div>
+            <div class="name-email">
+              <div class="formInput">
+                <div>Full name</div>
+                <!-- <input id="name" type="text" maxlength="35" /> -->
+                <input style="color: black;" id="name" type="text" />
+
+              </div>
+              <div class="formInput">
+                <div>Email</div>
+                <input style="color: black;" id="email" type="text" />
+              </div>
+            </div>
+            <div class="pass">
+              <div class="formInput">
+                <div>Password</div>
+                <input style="color: black;" id="pass" type="password" maxlength="30" />
+              </div>
+              <div class="formInput">
+                <div>Confirm Password</div>
+                <input style="color: black;" id="cpass" type="password" maxlength="30" />
+              </div>
+            </div>
+            <div class="loginButton">
+              <a href="/doc_log" target="_self">
+                <button>Register</button>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("Working");
+      $("#name,#email,#pass,#cpass").keyboard({
+        display: {
+          bksp: "\u2190",
+          accept: "enter",
+          normal: "ABC",
+          meta1: ".?123",
+          meta2: "#+=",
+        },
+        layout: "custom",
+        customLayout: {
+          normal: [
+			'q w e r t y u i o p {bksp}',
+			'a s d f g h j k l ',
+			'z x c v b n m , .',
+			'{c} {meta1} {space} {a}'
+          ],
+          shift: [
+            "Q W E R T Y U I O P {bksp}",
+            "A S D F G H J K L ",
+            "{s} Z X C V B N M ! ? {s}",
+            "{meta1} {space} {accept}",
+          ],
+          meta1: [
+            "1 2 3 4 5 6 7 8 9 0 {bksp}",
+            "- / : ; ( ) \u20ac & @ ",
+            "{meta2} . , ? ! ' \" {meta2}",
+            "{normal} {space} {accept}",
+          ],
+          meta2: [
+            "[ ] { } # % ^ * + = {bksp}",
+            "_ \\ | ~ < > $ \u00a3 \u00a5 ",
+            "{meta1} . , ? ! ' \" {meta1}",
+            "{normal} {space} {accept}",
+          ],
+        },
+      });
+      console.log("worked");
+    </script>
+    
+  </body>
+</html>

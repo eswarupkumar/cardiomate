@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <script src="{%static 'js/jquery.min.js'%}"></script>
+        <link href="{%static 'css/keyboard-dark.css' %}" rel="stylesheet">
+        <script src="{%static 'js/jquery.keyboard.js' %}"></script>
+        <script src="{%static 'js/loader.js' %}"></script>
+        <!--<link href="{%static 'css/keyboard-previewkeyset.css' %}" rel="stylesheet">-->
+        <!--<script src="{%static 'js/jquery.keyboard.extension-all.js' %}"></script>-->
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet">
+        <!--<script src="{%static 'js/jquery.magnific-popup.min.js'%}"></script>-->
+        <link rel="stylesheet" href="{%static 'css/doc_login.css'%}">
+        <!--<link rel="stylesheet" href="{%static 'css/navbar.css'%}" />-->
+        <!--<script src="{%static 'js/doc_log.js'%}"></script>-->
+        
+        <title>Cardiomate | Doctor Login</title>
+        
+    </head>
+
+    <body>
+        <!-- LOADER -->
+        <div id="preloader">
+            <div class="preloader pulse">
+                {% for message in messages %}
+                <h3>Welcome,<br>Dr. {{message}} </h3>
+                {%endfor%}
+            </div>
+        </div>
+        <!-- END LOADER -->
+
+        <div>
+            <div class="loginForm">
+                <div class="formHead">
+                    <div class="logo"><span><img style="height: 75px; justify-items:center;padding-bottom: 8%;" src="{% static 'img/heart.svg' %}" alt="heart-logo" ></span></div>
+                </div>
+      <h1 style="text-align: center;
+      color: #ED4D53;font-family: 'Alegreya', serif;">Doctor Login</h1>
+
+                <div class="formBody">
+                    <div>
+                        <div class="formInput">
+                            <div>Username</div>
+                            <input style="color: black;" id="username" type="text" maxlength="35">
+                        </div>
+                        <div class="formInput">
+                            <div>Password</div>
+                            <input style="color: black;" id="pass" type="password" maxlength="30">
+                        </div>
+                        <div class="rememberMe">
+                            <input id="remember" type="checkbox" class="checkRemember">
+                            <label style="color:  #2B3993;" for="remember">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="loginButton">
+                        <a href="/home" target="_self">
+                            <button>Login</button>
+                        </a>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+        <script>
+            console.log("Working")
+            $('#username,#pass').keyboard({
+                display: {
+                    'bksp'   :  "\u2190",
+                    'accept' : 'enter',
+                    'normal' : 'ABC',
+                    'meta1'  : '.?123',
+                    'meta2'  : '#+='
+                },
+                layout: 'custom',
+        customLayout: {
+            'normal': [
+			'q w e r t y u i o p {bksp}',
+			'a s d f g h j k l ',
+			'z x c v b n m , .',
+			'{c} {meta1} {space} {a}'
+            ],
+            'shift': [
+                'Q W E R T Y U I O P {bksp}',
+                'A S D F G H J K L ',
+                '{s} Z X C V B N M ! ? {s}',
+                '{meta1} {space} {accept}'
+            ],
+            'meta1': [
+                '1 2 3 4 5 6 7 8 9 0 {bksp}',
+                '- / : ; ( ) \u20ac & @ ',
+                '{meta2} . , ? ! \' " {meta2}',
+                '{normal} {space} {accept}'
+            ],
+            'meta2': [
+                '[ ] { } # % ^ * + = {bksp}',
+                '_ \\ | ~ < > $ \u00a3 \u00a5 ',
+                '{meta1} . , ? ! \' " {meta1}',
+                '{normal} {space} {accept}'
+            ]
+        }
+    
+            })
+            console.log("worked")
+        </script>
+    </body>
+
+</html>
